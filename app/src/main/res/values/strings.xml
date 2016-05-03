@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Petagram</string>
+    <string name="nombre">Elefante</string>
+    <string name="action_settings">Opciones</string>
+    action_settings
+    <string name="tvrate">0</string>
+</resources>
