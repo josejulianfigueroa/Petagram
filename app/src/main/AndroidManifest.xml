@@ -2,14 +2,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.android.miscontactos">
 
-    <uses-permission android:name="android.permission.CALL_PHONE"></uses-permission>
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/huella"
         android:label="@string/app_name"
         android:supportsRtl="true"
-
         android:theme="@style/AppTheme">
 
         <activity android:name="mismascotas.MainActivity">
@@ -20,16 +19,31 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="mismascotas.Ultimas"
+        <activity
+            android:name="mismascotas.Ultimas"
             android:parentActivityName="mismascotas.MainActivity">
-            <!-- soporte para versionas anteriores 4-->
+
+            <!-- soporte para versionas anteriores 4 -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="mismascotas.MainActivity">
-            </meta-data>
+                android:value="mismascotas.MainActivity"></meta-data>
         </activity>
 
+        <activity android:name="mismascotas.Contacto"
+            android:parentActivityName="mismascotas.Contacto">
 
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mismascotas.MainActivity" ></meta-data>
+        </activity>
+
+        <activity android:name="mismascotas.Bio"
+        android:parentActivityName="mismascotas.Bio">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="mismascotas.MainActivity"></meta-data>
+        </activity>
     </application>
 
 </manifest>

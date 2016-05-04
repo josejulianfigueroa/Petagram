@@ -1,4 +1,4 @@
-package mismascotas;
+package mismascotas.Adapter;
 
 /**
  * Created by JULIAN on 02/05/2016.
@@ -17,6 +17,8 @@ import android.widget.TextView;
 import com.example.android.miscontactos.R;
 
 import java.util.ArrayList;
+
+import mismascotas.Mascotas;
 
 
 public class MascoAdaptador extends RecyclerView.Adapter<MascoAdaptador.MyViewHolder> {

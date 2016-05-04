@@ -1,7 +1,23 @@
 <resources>
-    <string name="app_name">Petagram</string>
+    <string name="app_name2">Petagram</string>
+    <string name="app_name"></string>
+    <string name="nombre2">Nombre:</string>
     <string name="nombre">Elefante</string>
-    <string name="action_settings">Opciones</string>
-    action_settings
+    <string name="mensaje2">Mensaje:</string>
+    <string name="action_settings">Contacto</string>
+    <string name="rufino">Rufino</string>
+    <string name="action_settings2">Acerca de</string>
+
     <string name="tvrate">0</string>
+    <string name="siguiente">Enviar Comentario</string>
+    <string name="email2">Email:</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mensaje0">Ingeniero de Sistemas - José Julián Figueroa Guerra - 30 Años</string>
+    <string name="mensaje3">Perfil Profesional:Diseñar e Implementar Proyectos
+        Tecnológicos basados en las Tecnologías de la Información / Desarrollo
+        de Software aplicados a modelos de negocios de ámbito global. Permitiendo
+        de esta forma, poder crear sistemas automatizados que gestionen procesos
+        y servicios enfocados en satisfacer las necesidades del cliente.</string>
 </resources>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <ImageView
+        android:id="@+id/imgFoto2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/alto"
+        android:src="@mipmap/delfin_perfil"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/letra"
+        android:id="@+id/tvNombreCV"
+        android:text="@string/rufino"
+        android:layout_gravity="center_horizontal"
+        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+
+</LinearLayout>

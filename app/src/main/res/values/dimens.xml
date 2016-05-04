@@ -7,4 +7,5 @@
     <dimen name="letra">25sp</dimen>
     <dimen name="top">20dp</dimen>
     <dimen name="left">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

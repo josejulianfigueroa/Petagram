@@ -2,9 +2,11 @@ package mismascotas;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,46 +14,53 @@ import com.example.android.miscontactos.R;
 
 import java.util.ArrayList;
 
+import mismascotas.Adapter.PageAdapter;
+import mismascotas.Fragments.Perfil;
+import mismascotas.Fragments.RecyclerViewFragment;
+
 public class MainActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    private ArrayList<Mascotas> masco;
-    private MascoAdaptador mAdapter;
+    private Toolbar toolbar;
+    private TabLayout tablayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
-        //setSupportActionBar(myToolbar);
 
-        getSupportActionBar().setIcon(R.drawable.huella);
-
-        masco = new ArrayList<Mascotas>();
-
-        masco.add(new Mascotas("Katy",0, R.drawable.ave));
-        masco.add(new Mascotas("Carlius",0, R.drawable.caballo));
-        masco.add(new Mascotas("KsKbel",0, R.drawable.culebra));
-        masco.add(new Mascotas("Rufino",0, R.drawable.delfin));
-        masco.add(new Mascotas("Simplin",0, R.drawable.elefante));
-        masco.add(new Mascotas("Firulin",0, R.drawable.gato));
-        masco.add(new Mascotas("Puka",0, R.drawable.leon));
-        masco.add(new Mascotas("Lolita",0, R.drawable.perro2));
-        masco.add(new Mascotas("Shakiro",0, R.drawable.pez));
-        masco.add(new Mascotas("Queso",0, R.drawable.tigre));
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        tablayout = (TabLayout) findViewById(R.id.tabLayout);
+        viewPager = (ViewPager) findViewById(R.id.viewPager);
 
 
-        mAdapter = new MascoAdaptador(masco,this);
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
 
-        recyclerView.setAdapter(mAdapter);
+        setUpViewPager();
 
-
+        if (toolbar != null)
+        {setSupportActionBar(toolbar);}
     }
+
+    private ArrayList<Fragment> agregarFragments(){
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new Perfil());
+
+        return fragments;
+    }
+
+    private void setUpViewPager(){
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(),agregarFragments()));
+        tablayout.setupWithViewPager(viewPager);
+
+        tablayout.getTabAt(0).setIcon(R.drawable.ic_home);
+        tablayout.getTabAt(1).setIcon(R.drawable.ic_action_name);
+    }
+
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -65,8 +74,15 @@ public class MainActivity extends AppCompatActivity {
         {
             case R.id.estre:
                 Intent intent = new Intent(MainActivity.this,Ultimas.class);
-              //  intent.putExtra("mas",masco);
                 startActivity(intent);
+                break;
+            case R.id.action_contacto:
+               Intent intent2 = new Intent(MainActivity.this,Contacto.class);
+                startActivity(intent2);
+                break;
+            case R.id.action_acercade:
+                Intent intent3 = new Intent(MainActivity.this,Bio.class);
+                startActivity(intent3);
                 break;
         }
         return super.onOptionsItemSelected(item);

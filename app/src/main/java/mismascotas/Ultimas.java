@@ -9,6 +9,8 @@ import com.example.android.miscontactos.R;
 
 import java.util.ArrayList;
 
+import mismascotas.Adapter.MascoAdaptador;
+
 public class Ultimas extends AppCompatActivity {
 
     RecyclerView recyclerView;
