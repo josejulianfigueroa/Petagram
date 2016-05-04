@@ -34,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         tablayout = (TabLayout) findViewById(R.id.tabLayout);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
 
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
 
         setUpViewPager();
