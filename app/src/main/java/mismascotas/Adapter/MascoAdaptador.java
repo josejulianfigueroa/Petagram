@@ -19,15 +19,23 @@ import com.example.android.miscontactos.R;
 import java.util.ArrayList;
 
 import mismascotas.Mascotas;
+import mismascotas.bd.BaseDatos;
 
 
 public class MascoAdaptador extends RecyclerView.Adapter<MascoAdaptador.MyViewHolder> {
 
     private ArrayList<Mascotas> masco;
+
+
+
     public static ArrayList<Mascotas> masco2 = new ArrayList<Mascotas>();
     Activity activity;
 
+
+
     public class MyViewHolder extends RecyclerView.ViewHolder {
+
+
 
         private TextView tvNombreCV, tvrate;
         private ImageButton btnLike;
@@ -73,9 +81,14 @@ public class MascoAdaptador extends RecyclerView.Adapter<MascoAdaptador.MyViewHo
             @Override
             public void onClick(View v) {
 
-                int i = con.getRate()+1;
+                BaseDatos db = new BaseDatos(activity);
+                int likes = db.obtenerLikes(con);
+                int i = likes+1;
+
+                db.actualizaLike(i,con);
                 con.setRate(i);
-                masco2.add(con);
+
+
                 notifyItemChanged(po);
             }
         });

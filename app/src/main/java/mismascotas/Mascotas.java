@@ -7,12 +7,15 @@ import java.io.Serializable;
  */
 public class Mascotas implements Serializable {
     private String nombre;
-    private int foto,rate;
+    private int foto,rate,id;
 
     public Mascotas(String nombre,int rate, int foto) {
         this.nombre = nombre;
         this.rate = rate;
         this.foto = foto;
+    }
+
+    public Mascotas() {
     }
 
     public String getNombre() {
@@ -37,5 +40,13 @@ public class Mascotas implements Serializable {
 
     public void setFoto(int foto) {
         this.foto = foto;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

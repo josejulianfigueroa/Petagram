@@ -1,5 +1,7 @@
 package mismascotas;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,12 +13,15 @@ import com.example.android.miscontactos.R;
 import java.util.ArrayList;
 
 import mismascotas.Adapter.MascoAdaptador;
+import mismascotas.bd.BaseDatos;
 
 public class Ultimas extends AppCompatActivity {
 
     RecyclerView recyclerView;
     private ArrayList<Mascotas> masco3 = new ArrayList<Mascotas>();
     private MascoAdaptador mAdapter;
+    private Context context;
+    private Activity activity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,11 +32,10 @@ public class Ultimas extends AppCompatActivity {
       setSupportActionBar(myToolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        masco3.add(new Mascotas("Katy",4, R.drawable.ave));
-        masco3.add(new Mascotas("Carlius",1, R.drawable.caballo));
-        masco3.add(new Mascotas("KsKbel",2, R.drawable.culebra));
-        masco3.add(new Mascotas("Rufino",3, R.drawable.delfin));
-        masco3.add(new Mascotas("Simplin",4, R.drawable.elefante));
+
+
+        BaseDatos db = new BaseDatos(getApplicationContext());
+        masco3 = db.obtenerMascotas2();
 
         mAdapter = new MascoAdaptador(masco3,this);
 
